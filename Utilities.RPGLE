@@ -20,7 +20,7 @@
     end-Proc;
 
 
-	dcl-Proc FnFormaTiempo Export;
+	dcl-Proc FnFormatoTiempo Export;
         dcl-pi *n like(wTiempoT);
             InTime Time(*ISO) Const;
         end-pi

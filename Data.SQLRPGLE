@@ -12,6 +12,8 @@
 
 		Exec SQL
 			Insert Into USUARIO Values(:InUsuario);
+
+		OutSqlState = SQLSTATE;
 			
 	end-Proc;
-	
+		
