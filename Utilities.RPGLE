@@ -52,13 +52,13 @@
        
         //- Process
 
-        SELECT; 
-            WHEN InSqlState = 00000;
-                wMsgId = LNS0000;
-            WHEN InSqlState = 42704;
-                wMsgId = LNS9516;
+        SELECT;
+            WHEN InSqlState = '00000';
+                wMsgId = 'LNS0000';
+            WHEN InSqlState = '42704';
+                wMsgId = 'LNS9516';
             OTHER;
-                wMsgId LBK0021;
+                wMsgId = 'LBK0021';
         ENDSL;
 
         Return wMsgId;

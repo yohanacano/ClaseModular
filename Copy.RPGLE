@@ -24,11 +24,11 @@
     end-pr;
 
     dcl-pr FnFormatoFecha like(wFechaT);
-          parDate Date(*ISO) const;
+          parDate Date(*ISO) Const;
     end-pr;
 
     dcl-pr FnFormatoTiempo like(wTiempoT);
-          parTime Time(*ISO) const;
+          parTime Time(*ISO) Const;
     end-pr;
 
     dcl-pr PrEntrada;
@@ -37,8 +37,8 @@
         parMsgId like(wMsgIdT);
     end-pr;
 
-	dcl-pr FnObtenerMensaje like(wMsgIdT);
-        parMsgId like(wMsgIdT) Const;
+    dcl-pr FnObtenerMensaje like(wMsgIdT);
+	    parSqlState like(wSqlStateT) Const;
     end-pr;
 
      
