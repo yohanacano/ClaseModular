@@ -1,29 +1,34 @@
 **free
 
-	/copy Copy
+    ctl-opt Copyright('Bancolombia - Yohana Cano Hernandez');
+    ctl-opt nomain;
 
-	dcl-Proc PrEntrada Export;
-		dcl-pi *n;
-			InNombre like(wNombreT);
-			InId like(wIdT);
-			OutMsgId like(wMsgIdT);
-		end-pi
-	  
-		//- Structures
-	  
-		dcl.Ds DsUsuario likeDs(DsUsuarioT);
+    /copy Copy
 
-		//- variables
+    dcl-Proc PrEntrada Export;
+        dcl-pi *n;
+            InNombre like(wNombreT) Const;
+            InId like(wIdT) Const;
+            OutMsgId like(wMsgIdT);
+        end-pi;
+       
+        //- Structures
+       
+        dcl-Ds DsUsuario likeDs(DsUsuarioT);
 
-		dcl-s wSqlState like(wSqlStateT);
-	
-		//- Process	
+        //- variables
 
-		DsUsuario.Nombre = InNombre;
-		DsUsuario.Id = InId;
-		DsUsuario.Fecha = FnFormatoFecha(%Date()); 
-		DsUsuario.Tiempo = FnFormatoTiempo(%Time()); 	
+        dcl-s wSqlState like(wSqlStateT);
+     
+        //- Process     
 
-		PrInsertar(DsUsuario:wSqlState)
-		
-	end-Proc;
+        DsUsuario.Nombre = InNombre;
+        DsUsuario.Id = InId;
+        DsUsuario.Fecha = FnFormatoFecha(%Date()); 
+        DsUsuario.Tiempo = FnFormatoTiempo(%Time());      
+
+        PrInsertar(DsUsuario:wSqlState);
+
+		OutMsgId = FnObtenerMensaje(wSqlState);
+  
+    end-Proc;
